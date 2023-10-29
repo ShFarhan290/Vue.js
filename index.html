@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<style>
+    .box{
+        background-color: red;
+        width: 400px;
+        height: 400px;
+    }
+</style>
+<body>
+
+    <div id="app" style="padding: 25px;">
+        <p>{{ title }}</p>
+        <p>{{ isItTrue }}</p>
+        <p>{{ cars[0] }} {{ cars[2] }}</p>
+        <p>{{robot.name}}</p>
+        <img v-bind:src="src" v-bind:alt="alt" style="width: 500px;"> <br> <br>
+        <a @click="changeImage" style="width: 500px;"> Click Here </a>
+
+        <p v-text="myText"></p>
+        <p v-html = "myHTML"></p>
+
+        <p v-if = "userAged >= allowAged">
+            you are free to go
+        </p>
+
+        <p v-else>
+            you are not good to go
+        </p>
+
+        <p v-show="user==='Farhan'">
+            Show It
+        </p>
+
+        <p v-show="user!=='Farhan'">
+            Don't Show It
+        </p>
+
+        <p v-for="n in 20">
+            {{n}}
+        </p>
+
+        <h1>{{name}}</h1>
+        <!-- <button v-on:click="updateName('Farhan')">Click Me</button> -->
+
+        <div v-on:mousemove="getCoord" class="box">
+            Hover Me
+        </div>
+        <p>X : {{x}}</p>
+        <p>Y : {{y}}</p>
+
+        {{update()}}
+
+        <form v-on:submit.prevent="handleForm">
+
+            <label> First Name : </label>
+            <input type="text" v-model="formData.firstName">
+            <br><br>
+
+            <label> Last Name : </label>
+            <input type="text" v-model="formData.lastName">
+            <br><br>
+
+            <button type="submit">Submit</button>
+
+        </form>
+
+        <button v-on:click="a++" style="margin-top: 10px;">Add A</button>
+        <button v-on:click="b++" style="margin-top: 10px;">Add B</button>
+
+        <p>A = {{a}}</p>
+        <p>B = {{b}}</p>
+
+        <p>Salary + A = {{addToA}}</p>
+        <p>Salary + B = {{addToB}}</p>
+    </div>
+
+    <div id="app1" style="margin-left: 25px;">
+        <p> {{ wave }} </p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
